@@ -3,7 +3,7 @@ import { AccordionDemo } from './Accordion'
 
 const Questions = () => {
   return (
-    <div className='flex flex-row justify-between max-lg:flex-col items-center gap-20 max-lg:gap-[7rem] xl:px-28 lg:px-20 md:px-10 max-md:px-8 py-16'>
+    <div id='Questions' className='flex flex-row justify-between max-lg:flex-col items-center gap-20 max-lg:gap-[7rem] xl:px-28 lg:px-20 md:px-10 max-md:px-8 py-16'>
       <div className='flex flex-col gap-8 flex-1 lg:self-start max-lg:w-full'>
         <p className='text-[#002159] font-semibold text-xl'>Frequently Asked Questions</p>
         <AccordionDemo />

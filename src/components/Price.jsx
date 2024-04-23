@@ -6,7 +6,7 @@ import { FaRegCircleCheck } from "react-icons/fa6";
 
 const Price = () => {
     return (
-        <div className='darkBlue text-white flex flex-col items-center justify-between gap-10 xl:px-28 lg:px-20 md:px-10 max-md:px-8 py-16'>
+        <div id='Pricing' className='darkBlue text-white flex flex-col items-center justify-between gap-10 xl:px-28 lg:px-20 md:px-10 max-md:px-8 py-16'>
             <section className='flex flex-col gap-4 text-center'>
                 <h2 className='text-xl'>Explorer our amazing tools</h2>
                 <p>Enable a streamlined and effortless process for conducting transactions by utilizing a single tap.</p>

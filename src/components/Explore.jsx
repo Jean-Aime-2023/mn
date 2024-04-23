@@ -7,7 +7,7 @@ import CustomButton from './CustomButton'
 
 const Explore = () => {
     return (
-        <div className='darkBlue text-white flex flex-row max-lg:flex-col items-center gap-10 max-lg:gap-[7rem] xl:px-28 lg:px-20 md:px-10 max-md:px-8 py-16'>
+        <div id='Explore' className='darkBlue text-white flex flex-row max-lg:flex-col items-center gap-10 max-lg:gap-[7rem] xl:px-28 lg:px-20 md:px-10 max-md:px-8 py-16'>
             <div className='flex flex-1 max-lg:w-full flex-col gap-[3rem]'>
                 <section className='flex flex-col gap-4'>
                     <p className='text-2xl max-sm:text-xl'>Choose Your Own Unique Digital Bracelet  </p>

@@ -7,7 +7,7 @@ import paypal from '../assets/images/paypal.png'
 
 const Customers = () => {
     return (
-        <div className='flex flex-col items-center justify-between gap-10 xl:px-28 lg:px-20 md:px-10 max-md:px-8 py-16'>
+        <div id='Customers' className='flex flex-col items-center justify-between gap-10 xl:px-28 lg:px-20 md:px-10 max-md:px-8 py-16'>
             <h2 className='text-[#002159] font-semibold text-xl'>What Our Happy Customers Say About MinceTech</h2>
             <div className='grid lg:grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 p-10 gap-14'>
                 <div className='flex flex-col justify-start items-start rounded-xl shadow-lg gap-6 p-12 max-sm:w-full'>
