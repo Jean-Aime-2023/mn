@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-scroll';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import minceLogo from '../assets/logos/mince.png'
 import CustomButton from './CustomButton';
 import { CiMenuFries } from "react-icons/ci";
@@ -8,11 +8,12 @@ import { IoClose } from "react-icons/io5";
 
 
 const Navbar = () => {
+    const navigate = useNavigate();
 
     const [openMenu, setOpenMenu] = useState(false);
     const handleSetActive = (to) => {
         console.log(to);
-      };
+    };
     const openMenuFunc = () => {
         setOpenMenu(true)
     }
@@ -45,16 +46,16 @@ const Navbar = () => {
                 <Link to="Explore" spy={true} smooth={true} offset={-100} duration={500} className='cursor-pointer'>Explore</Link>
                 <Link to="Questions" spy={true} smooth={true} offset={-150} duration={500} className='cursor-pointer'>Questions</Link>
             </ul>
-            <div className='flex flex-row gap-5 max-md:hidden'>
+            <div className='flex flex-row items-center gap-5 max-md:hidden'>
                 <CustomButton
                     otherStyles='bg-transparent border border-2 border-white text-white hover:bg-white hover:text-[#5846DF]'
                     action={'Login'}
-                    onClick={() => { }}
+                    onClick={() => navigate("/login")}
                 />
                 <CustomButton
                     otherStyles='bg-[#5846DF] text-white'
                     action={'Register'}
-                    onClick={() => { }}
+                    onClick={() => navigate("/signup")}
                 />
             </div>
             <div onClick={() => openMenuFunc()} className='max-md:block md:hidden bg-secondary-100 p-2 rounded-lg shadow-2xl cursor-pointer'>

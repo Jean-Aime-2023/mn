@@ -12,7 +12,7 @@ import Footer from '../components/Footer'
 
 const Homepage = () => {
     return (
-        <div className='flex flex-col gap-10 bg-[#FBFBFF] scrollbar-hidden'>
+        <div className='flex flex-col gap-10 scrollbar-hidden'>
             <div className='darkBlue flex flex-col gap-4'>
                 <Navbar />
                 <HeroSection/>
