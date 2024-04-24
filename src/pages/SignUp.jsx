@@ -5,10 +5,52 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, db } from '../components/firebase';
+import { setDoc, doc } from 'firebase/firestore'
+import { toast } from 'react-toastify';
 
 const Login = () => {
-  const [phoneNumber, setPhoneNumber] = useState('');
+
+  const [firstname, setFirstname] = useState("")
+  const [lastname, setLastname] = useState("")
+  const [email, setEmail] = useState("")
+  const [phonenumber, setPhonenumber] = useState("")
+  const [password, setPassword] = useState("")
+  const [password2, setPassword2] = useState("")
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleRegister = async (e) => {
+    e.preventDefault()
+    try {
+      await createUserWithEmailAndPassword(auth, email, password, password2);
+      const user = auth.currentUser;
+      console.log(user);
+      if (user) {
+        await setDoc(doc(db, "Users", user.uid), {
+          email: user.email,
+          firstname: firstname,
+          lastname: lastname,
+          password: password,
+          password2: password2,
+          phonenumber: phonenumber,
+          checked: isChecked
+        });
+      }
+      console.log('user registered successfully');
+      toast.success("User registration successful!!",{
+        position:"bottom-left"
+      })
+    } catch (error) {
+      console.log(error.message);
+      toast.success(error.message,{
+        position:"bottom-left"
+      })
+    }
+  }
+
   const navigate = useNavigate();
+
   return (
     <div className='w-screen flex justify-center items-center h-screen max-sm:text-sm my-20'>
       <div className='flex flex-col gap-9 lg:w-[38%] max-lg:w-[80%]'>
@@ -28,19 +70,19 @@ const Login = () => {
               <hr className='border border-[#CECACA] w-[40%]' />
             </section>
           </div>
-          <form className='flex flex-col justify-center gap-5'>
-            <div className='flex flex-row items-center justify-between'>
-              <div className='flex flex-col gap-4'>
-                <label htmlFor="email" className='text-[#6B6B6B]'>First Name</label>
-                <input type="email" placeholder='John' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' />
+          <form className='flex flex-col justify-center gap-5' onSubmit={handleRegister}>
+            <div className='flex flex-row items-center justify-between max-lg:flex-col max-lg:gap-7'>
+              <div className='flex flex-col gap-4 flex- max-lg:w-full'>
+                <label htmlFor="fname" className='text-[#6B6B6B]'>First Name</label>
+                <input type="text" placeholder='John' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' onChange={(e) => setFirstname(e.target.value)} />
               </div>
-              <div className='flex flex-col gap-5'>
-                <label htmlFor="email" className='text-[#6B6B6B]'>Last Name</label>
-                <input type="email" placeholder='Doe' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' />
+              <div className='flex flex-col gap-5 flex- max-lg:w-full'>
+                <label htmlFor="lname" className='text-[#6B6B6B]'>Last Name</label>
+                <input type="text" placeholder='Doe' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' onChange={(e) => setLastname(e.target.value)} />
               </div>
             </div>
             <label htmlFor="email" className='text-[#6B6B6B]'>Email</label>
-            <input type="email" placeholder='Youremail@gmail.com' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' />
+            <input type="email" placeholder='Youremail@gmail.com' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' onChange={(e) => setEmail(e.target.value)} />
             <label htmlFor="email" className='text-[#6B6B6B]'>Phone Number</label>
             <PhoneInput
               country={'rw'}
@@ -51,17 +93,15 @@ const Login = () => {
                 fontSize: '17px'
               }}
               specialLabel='Phone Number'
-              value={phoneNumber}
-              onChange={(phone) => setPhoneNumber(phone)}
+              onChange={(phoneNumber) => setPhonenumber(phoneNumber)} // Update to directly set phoneNumber
               placeholder='_ _ _   _ _ _   _ _ _'
             />
-
             <label htmlFor="password" className='text-[#6B6B6B]'>Password</label>
-            <input type="password" placeholder='Your password' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' />
+            <input type="password" placeholder='Your password' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' onChange={(e) => setPassword(e.target.value)} />
             <label htmlFor="password" className='text-[#6B6B6B]'>Confirm Password</label>
-            <input type="password" placeholder='Confirm Password' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' />
+            <input type="password" placeholder='Confirm Password' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' onChange={(e) => setPassword2(e.target.value)} />
             <div className='flex flow-row gap-3 items-center'>
-              <input type="checkbox" id="agree" name="agree" className='w-[18px] h-[18px]' />
+              <input type="checkbox" id="agree" name="agree" className='w-[18px] h-[18px]' onChange={(e) => setIsChecked(e.target.value)} />
               <label htmlFor="agree" className='text-[#6B6B6B]'>Remember me</label>
             </div>
             <button type="submit" className='w-full darkBlue rounded-md text-white py-4 cursor-pointer'>Sign Up</button>

@@ -1,12 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../assets/logos/mince2.png'
 import googleLogo from '../assets/logos/google.png'
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../components/firebase';
+import { toast } from 'react-toastify';
 
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
+  const [isChecked, setIsChecked] = useState("");
+  
+  const handleSubmit=async(e)=>{
+    e.preventDefault()
+    try {
+      await signInWithEmailAndPassword(auth,email,password);
+      console.log("User logged in successfully")
+      window.location.href = "/profile";
+      toast.success("User registration successful!!",{
+        position:"bottom-left"
+      })
+    } catch (error) {
+      console.log(error.message);
+      toast.success(error.message,{
+        position:"bottom-left"
+      })
+    }
+  }
+
   return (
     <div className='w-screen flex justify-center items-center h-screen max-sm:text-sm'>
       <div className='flex flex-col gap-10 lg:w-[38%] max-lg:w-[80%]'>
@@ -26,13 +51,13 @@ const Login = () => {
               <hr className='border border-[#CECACA] w-[40%]' />
             </section>
           </div>
-          <form className='flex flex-col justify-center gap-6'>
+          <form className='flex flex-col justify-center gap-6' onSubmit={handleSubmit}>
             <label htmlFor="email" className='text-[#6B6B6B]'>Email</label>
-            <input type="email" placeholder='Youremail@gmail.com' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' />
+            <input type="email" placeholder='Youremail@gmail.com' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' onChange={(e) => setEmail(e.target.value)} />
             <label htmlFor="password" className='text-[#6B6B6B]'>Password</label>
-            <input type="password" placeholder='Your password' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' />
+            <input type="password" placeholder='Your password' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' onChange={(e) => setPassword(e.target.value)} />
             <div className='flex flow-row gap-3 items-center'>
-              <input type="checkbox" id="agree" name="agree" className='w-[18px] h-[18px]' />
+              <input type="checkbox" id="agree" name="agree" className='w-[18px] h-[18px]' onChange={(e) => setIsChecked(e.target.value)}/>
               <label htmlFor="agree" className='text-[#6B6B6B]'>Remember me</label>
             </div>
             <button type="submit" className='w-full darkBlue rounded-md text-white py-4 cursor-pointer'>Login</button>
