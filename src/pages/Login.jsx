@@ -33,7 +33,7 @@ const Login = () => {
             <input type="password" placeholder='Your password' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' />
             <div className='flex flow-row gap-3 items-center'>
               <input type="checkbox" id="agree" name="agree" className='w-[18px] h-[18px]' />
-              <label for="agree" className='text-[#6B6B6B]'>Remember me</label>
+              <label htmlFor="agree" className='text-[#6B6B6B]'>Remember me</label>
             </div>
             <button type="submit" className='w-full darkBlue rounded-md text-white py-4 cursor-pointer'>Login</button>
           </form>
