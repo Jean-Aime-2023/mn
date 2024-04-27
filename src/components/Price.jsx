@@ -3,7 +3,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
 import CustomButton from './CustomButton'
 import { FaRegCircleCheck } from "react-icons/fa6";
 
-
 const Price = () => {
     return (
         <div id='Pricing' className='darkBlue text-white flex flex-col items-center justify-between gap-10 xl:px-28 lg:px-20 md:px-10 max-md:px-8 py-16'>
