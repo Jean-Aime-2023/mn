@@ -21,6 +21,7 @@ const Tools = () => {
           <p className='text-[#002159] text-[15px]'>Contract & parties Validation</p>
           <p className='text-[#6B6B6B] text-[15px]'>Use the following services for free and get more of our services</p>
         </div>
+        
         <div className='flex flex-col justify-center items-center text-center rounded-xl h-[300px] w-[258.62px] shadow-lg gap-6 p-8 max-sm:w-full'>
           <section className='p-4 bg-[#5547D7] rounded-full'><img src={icon3} alt="" /></section>
           <p className='text-[#002159] text-[15px]'>Privacy & secure granted</p>
