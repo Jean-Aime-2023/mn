@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../components/firebase';
 import { toast } from 'react-toastify';
+import { UserAuth } from '../context/AuthContext';
 
 
 const Login = () => {
@@ -32,6 +33,16 @@ const Login = () => {
     }
   }
 
+  const { googleSignIn } = UserAuth()
+
+  const handleGoogleSignIn=async()=>{
+    try {
+      await googleSignIn()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className='w-screen flex justify-center items-center h-screen max-sm:text-sm'>
       <div className='flex flex-col gap-10 lg:w-[38%] max-lg:w-[80%]'>
@@ -41,10 +52,10 @@ const Login = () => {
         </section>
         <section className='flex flex-col justify-center gap-7'>
           <div className='flex flex-col justify-center gap-10'>
-            <section className='flex flex-row justify-center items-center py-4 rounded-md gap-3 border-2 cursor-pointer border-[#CECACA]'>
+            <button onClick={handleGoogleSignIn} className='flex flex-row justify-center items-center py-4 rounded-md gap-3 border-2 cursor-pointer border-[#CECACA]'>
               <img src={googleLogo} alt="" className='w-[22px] h-[22px]' />
               <p className='text-[#6B6B6B]'>Sign in with Google</p>
-            </section>
+            </button>
             <section className='flex flex-row justify-center items-center gap-6 w-full'>
               <hr className='border border-[#CECACA] w-[40%]' />
               <p className='w-[20%] flex items-center justify-center'>OR</p>
