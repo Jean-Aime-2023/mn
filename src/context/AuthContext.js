@@ -2,6 +2,7 @@ import { useContext, createContext, useEffect, useState } from 'react';
 import {
   GoogleAuthProvider,
   signInWithPopup,
+  getAuth,
   signInWithRedirect,
   signOut,
   onAuthStateChanged,
@@ -18,7 +19,18 @@ export const AuthContextProvider = ({ children }) => {
     signInWithPopup(auth, provider);
   };
 
+  const logOut =()=>{
+    signOut(auth)
+  }
+
   useEffect(() => {
+    const unregisterAuthObserver = onAuthStateChanged(
+      getAuth(),
+      async (user) => {
+        console.log('user', user);
+      },
+    );
+
     const unSubscribe = onAuthStateChanged(auth,(currentUser) => {
       setUser(currentUser);
       console.log('User',currentUser);
@@ -30,7 +42,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ googleSignIn }}>
+    <AuthContext.Provider value={{ googleSignIn , logOut,user }}>
       {children}
     </AuthContext.Provider>
   );
