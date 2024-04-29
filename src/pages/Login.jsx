@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../assets/logos/mince2.png'
 import googleLogo from '../assets/logos/google.png'
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -33,7 +33,7 @@ const Login = () => {
     }
   }
 
-  const { googleSignIn } = UserAuth()
+  const { googleSignIn,user } = UserAuth()
 
   const handleGoogleSignIn=async()=>{
     try {
@@ -42,6 +42,12 @@ const Login = () => {
       console.log(error)
     }
   }
+
+  useEffect(()=>{
+    if(user != null){
+      navigate('/account');
+    }
+  },[user]);
 
   return (
     <div className='w-screen flex justify-center items-center h-screen max-sm:text-sm'>
