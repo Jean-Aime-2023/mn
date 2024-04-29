@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, db } from '../components/firebase';
+import { auth, db } from '../lib/firebase';
 import { setDoc, doc } from 'firebase/firestore'
 import { toast } from 'react-toastify';
 
@@ -38,13 +38,13 @@ const Login = () => {
         });
       }
       console.log('user registered successfully');
-      toast.success("User registration successful!!",{
-        position:"bottom-left"
+      toast.success("User registration successful!!", {
+        position: "bottom-left"
       })
     } catch (error) {
       console.log(error.message);
-      toast.success(error.message,{
-        position:"bottom-left"
+      toast.success(error.message, {
+        position: "bottom-left"
       })
     }
   }

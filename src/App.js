@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import Profile from './pages/Profile';
 import GoogleAccount from './pages/GoogleAccount';
 import { AuthContextProvider } from './context/AuthContext';
+import Protected from './components/Protected';
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/account" element={<GoogleAccount />}></Route>
+          <Route path="/account" element={ <Protected><GoogleAccount /></Protected> }></Route>
         </Routes>
         <ToastContainer />
       </AuthContextProvider>

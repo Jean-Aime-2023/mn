@@ -4,7 +4,7 @@ import googleLogo from '../assets/logos/google.png'
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../components/firebase';
+import { auth } from '../lib/firebase';
 import { toast } from 'react-toastify';
 import { UserAuth } from '../context/AuthContext';
 
@@ -12,30 +12,30 @@ import { UserAuth } from '../context/AuthContext';
 const Login = () => {
   const navigate = useNavigate();
 
-  const [email,setEmail] = useState("")
-  const [password,setPassword] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   const [isChecked, setIsChecked] = useState("");
-  
-  const handleSubmit=async(e)=>{
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await signInWithEmailAndPassword(auth,email,password);
+      await signInWithEmailAndPassword(auth, email, password);
       console.log("User logged in successfully")
       window.location.href = "/profile";
-      toast.success("User registration successful!!",{
-        position:"bottom-left"
+      toast.success("User registration successful!!", {
+        position: "bottom-left"
       })
     } catch (error) {
       console.log(error.message);
-      toast.success(error.message,{
-        position:"bottom-left"
+      toast.success(error.message, {
+        position: "bottom-left"
       })
     }
   }
 
-  const { googleSignIn,user } = UserAuth()
+  const { googleSignIn, user } = UserAuth()
 
-  const handleGoogleSignIn=async()=>{
+  const handleGoogleSignIn = async () => {
     try {
       await googleSignIn()
     } catch (error) {
@@ -43,11 +43,11 @@ const Login = () => {
     }
   }
 
-  useEffect(()=>{
-    if(user != null){
+  useEffect(() => {
+    if (user != null) {
       navigate('/account');
     }
-  },[user]);
+  }, [user]);
 
   return (
     <div className='w-screen flex justify-center items-center h-screen max-sm:text-sm'>
@@ -74,7 +74,7 @@ const Login = () => {
             <label htmlFor="password" className='text-[#6B6B6B]'>Password</label>
             <input type="password" placeholder='Your password' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' onChange={(e) => setPassword(e.target.value)} />
             <div className='flex flow-row gap-3 items-center'>
-              <input type="checkbox" id="agree" name="agree" className='w-[18px] h-[18px]' onChange={(e) => setIsChecked(e.target.value)}/>
+              <input type="checkbox" id="agree" name="agree" className='w-[18px] h-[18px]' onChange={(e) => setIsChecked(e.target.value)} />
               <label htmlFor="agree" className='text-[#6B6B6B]'>Remember me</label>
             </div>
             <button type="submit" className='w-full darkBlue rounded-md text-white py-4 cursor-pointer'>Login</button>
