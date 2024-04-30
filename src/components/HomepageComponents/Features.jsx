@@ -1,7 +1,7 @@
 import React from 'react'
-import icon1 from '../assets/images/Third party.png'
-import icon2 from '../assets/images/Contract.png'
-import icon3 from '../assets/images/Cyber security.png'
+import icon1 from '../../assets/images/Third party.png'
+import icon2 from '../../assets/images/Contract.png'
+import icon3 from '../../assets/images/Cyber security.png'
 
 const Features = () => {
     return (

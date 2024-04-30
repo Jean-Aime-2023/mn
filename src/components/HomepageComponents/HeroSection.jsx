@@ -1,6 +1,6 @@
 import React from 'react'
-import lineSvg from '../assets/images/Line.png'
-import img from '../assets/images/Group 37735.png'
+import lineSvg from '../../assets/images/Line.png'
+import img from '../../assets/images/Group 37735.png'
 
 const HeroSection = () => {
     return (

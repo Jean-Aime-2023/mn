@@ -5,8 +5,8 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../lib/firebase';
-import { toast } from 'react-toastify';
 import { UserAuth } from '../context/AuthContext';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const Login = () => {
@@ -21,13 +21,13 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("User logged in successfully")
-      window.location.href = "/profile";
+      window.location.href = "/dashboard";
       toast.success("User registration successful!!", {
         position: "bottom-left"
       })
     } catch (error) {
       console.log(error.message);
-      toast.success(error.message, {
+      toast.error(error.message, {
         position: "bottom-left"
       })
     }
@@ -45,7 +45,7 @@ const Login = () => {
 
   useEffect(() => {
     if (user != null) {
-      navigate('/account');
+      navigate('/dashboard');
     }
   }, [user]);
 
@@ -84,6 +84,7 @@ const Login = () => {
           <p className='cursor-pointer' onClick={() => navigate("/")}>Back to Home</p>
           <p className='flex flex-row items-center gap-3'><span className='text-[#6B6B6B]'>No account ?</span> <span onClick={() => navigate("/signup")} className='flex flex-row items-center gap-1 cursor-pointer'>Sign up <FaArrowRightLong /></span></p>
         </section>
+        <Toaster />
       </div>
     </div>
   )

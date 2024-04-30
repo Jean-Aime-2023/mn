@@ -1,9 +1,9 @@
 import React from 'react'
-import bk from '../assets/images/bk.png'
-import visa from '../assets/images/visa.png'
-import momo from '../assets/images/momo.png'
-import mastercard from '../assets/images/mastercard.png'
-import paypal from '../assets/images/paypal.png'
+import bk from '../../assets/images/bk.png'
+import visa from '../../assets/images/visa.png'
+import momo from '../../assets/images/momo.png'
+import mastercard from '../../assets/images/mastercard.png'
+import paypal from '../../assets/images/paypal.png'
 
 const Customers = () => {
     return (

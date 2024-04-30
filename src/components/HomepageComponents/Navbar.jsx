@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-scroll';
 import { NavLink, useNavigate } from 'react-router-dom';
-import minceLogo from '../assets/logos/mince.png'
+import minceLogo from '../../assets/logos/mince.png'
 import CustomButton from './CustomButton';
 import { CiMenuFries } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";

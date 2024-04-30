@@ -1,6 +1,6 @@
 import React from 'react'
-import svg1 from '../assets/images/svg1.png'
-import bracelet from '../assets/images/bracelet.png'
+import svg1 from '../../assets/images/svg1.png'
+import bracelet from '../../assets/images/bracelet.png'
 import { FaArrowRightLong } from "react-icons/fa6";
 
 import CustomButton from './CustomButton'

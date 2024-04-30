@@ -7,7 +7,6 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import { FaGooglePlay } from "react-icons/fa";
-import { SelectDemo } from './Select';
 
 
 const Footer = () => {

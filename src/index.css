@@ -51,6 +51,184 @@ body{
 
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+  font-family: 'Poppins', sans-serif;
+  @apply transition-colors duration-100;
+}
+
+body{
+  overflow: hidden;
+}
+
+.mainBg{
+  background: #F9F9F9;
+}
+
+.home,
+.reports,
+.products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.darkBlueBg {
+  background: radial-gradient(
+    294.57% 265.53% at 215.89% 0%,
+    #0a1027 0%,
+    #232262 100%
+  );
+  /* width: 355px; */
+  flex-shrink: 0;
+}
+
+.darkBlue{
+  background: radial-gradient(
+    294.57% 265.53% at 215.89% 0%,
+    #0a1027 0%,
+    #232262 100%
+  );
+}
+
+.textDarkBlue {
+  color: #0a1027;
+}
+
+.minceText {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background: linear-gradient(248deg, #0a1027 -192.62%, #5547d7 85.3%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.inputHeader {
+  border-radius: 10px;
+  border: 1px solid #d9d9d9;
+}
+
+.iconHeader {
+  background: rgb(207, 207, 207);
+  padding: 5px;
+  border-radius: 50px;
+}
+
+.notificationBorder{
+  border-radius: 0px 10px 10px 0px;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  width: 0.5em; /* adjust as needed */
+}
+
+.scrollbar-hidden::-webkit-scrollbar-thumb {
+  background-color: transparent; /* hide the thumb */
+}
+
+.darkModeSidebar{
+  background: radial-gradient(145.3% 196.17% at 134.88% -8.8%, #081029 0%, #081029 0.01%, #232266 100%);
+}
+
+.sidebar li a .active{
+  background: #000;
+}
+
+/* Add this to your CSS stylesheet */
+.active-link {
+  background-color: green; /* Set your desired background color for the active link */
+  color: white; /* Set your desired text color for the active link */
+}
+
+
+.shadow-hover{
+  box-shadow: 0px 1px 8px 0px rgba(110, 110, 110, 0.25);
+}
+
+TableHead{
+  background: #5547d7;
+}
+
+.tableHd{
+  background: red !important;
+}
+
+
+.dashedBorder{
+  border: 2px dashed #5547D7;
+}
+
+.borderRadius{
+  border-radius: 100px 0px 40px 0px;
+
+}
+
+.shadowCards{
+  box-shadow: 0px 1px 8px 0px rgba(110, 110, 110, 0.25);
+}
+
+.darkBg{
+  background: linear-gradient(259deg, #0A1027 -16.2%, #232262 96.5%);
+}
+
+.chart{
+  width: 100%;
+  height: 100%;
+}
+
+.custom-calendar .react-calendar__tile {
+  border: 20px !important;
+  background-color: white !important;
+  padding: 10px;
+}
+
+/* Customize selected date to be a purple circle */
+.custom-calendar .react-calendar__tile--active {
+  height: 45px;
+  width: 45px;
+  border-radius: 100% !important;
+  background-color: #5547D7 !important;
+  color: white;
+}
+.custom-calendar .react-calendar__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; 
+}
+
+.custom-calendar .react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none !important;
+}
+
+.custom-calendar .react-calendar__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; 
+}
+
+.custom-calendar .react-calendar__month-view__weekdays {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-calendar .react-calendar__month-view__days {
+  display: grid;
+  place-items: center;
+}
+
+.custom-checkbox {
+  width: 20px; /* Adjust the width as needed */
+  height: 20px; /* Adjust the height as needed */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
