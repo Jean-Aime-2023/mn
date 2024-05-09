@@ -1,16 +1,16 @@
 import React from 'react'
 import SquareIcon from '@mui/icons-material/Square';
 import Logo from '../../assets/logos/Logo.png'
-import Button from './Button';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DoNotDisturbAltIcon from '@mui/icons-material/DoNotDisturbAlt';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import CustomButton from '../HomepageComponents/CustomButton';
 
 const Deal = ({image,name,detail1,detail2,price1,price2}) => {
     return (
-        <div className='shadow-xl rounded-xl flex flex-row justify-between flex-wrap py-7 px-12 cursor-pointer items-center border border-t-gray-200'>
+        <div className='shadow-xl rounded-xl flex flex-row justify-between flex-wrap py-7 px-12 cursor-pointer items-center border border-t-gray-200 dark:border-none dark:bg-[#0A1027]'>
             <div className='flex flex-row gap-5 items-center'>
                 <section><SquareIcon style={{ color: '#5547D7', borderRadius: '10px' }} /></section>
                 <section className='flex flex-row gap-3 items-center'>
@@ -51,19 +51,17 @@ const Deal = ({image,name,detail1,detail2,price1,price2}) => {
             </div>
             <div className='flex flex-col gap-5'>
                 <section>
-                    <Button
+                    <CustomButton
                         action={'Payed'}
                         icon={<CheckCircleIcon />}
-                        bg={'#5547D7'}
-                        hoverBg={'#7094db'}
+                        otherStyles='bg-[#5547D7] flex gap-4 text-white'
                     />
                 </section>
                 <section>
-                    <Button
+                    <CustomButton
                         action={'Payed'}
                         icon={<CheckCircleIcon />}
-                        bg={'#0A1027'}
-                        hoverBg={'#334d4d'}
+                        otherStyles='bg-[#0A1027] dark:bg-[#51555B] flex gap-4 text-white'
                     />
                 </section>
             </div>

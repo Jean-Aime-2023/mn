@@ -10,7 +10,7 @@ import { FaCircleQuestion } from "react-icons/fa6";
 export const SidebarData = [
   {
     title: 'Dashboard',
-    path: '/',
+    path: '/dashboard',
     icon: <FaClipboardList />,
     down: false,
     cName: 'nav-text'

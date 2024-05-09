@@ -1,22 +1,20 @@
-import React from 'react'
-import Calendar from 'react-calendar'
-import {useState} from 'react';
+import * as React from "react";
+import { Calendar } from "../../components/ui/calendar";
 
-const Calendarcomponent = () => {
-    const [value,onChange] = useState(new Date())
-    console.log(value);
+export function CalendarDemo() {
+  const [date, setDate] = React.useState()
+
+
+
   return (
-    <div>
-        <Calendar
-          value={value}
-          onChange={onChange}
-          calendarType='US'
-          defaultView='month'
-          selectRange
-          className='custom-calendar'
-        />
-    </div>
-  )
+    <Calendar
+      mode="single"
+      selected={date}
+      onSelect={setDate}
+      className="rounded-md border content-center flex justify-center" // Fit to parent div
+      classNames={{
+        day_selected: "bg-[#5547D7] text-white", // Custom class for selected date
+      }}
+    />
+  );
 }
-
-export default Calendarcomponent    

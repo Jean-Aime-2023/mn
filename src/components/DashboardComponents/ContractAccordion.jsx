@@ -12,7 +12,7 @@ const ContractAccordion = () => {
     }
 
     return (
-        <div className='shadow-xl rounded-xl flex flex-row flex-wrap justify-between py-7 px-8 cursor-pointer border border-t-gray-200 bg-white'>
+        <div className='shadow-xl rounded-xl flex flex-row flex-wrap justify-between py-7 px-8 cursor-pointer border border-t-gray-200 bg-white dark:bg-[#0A1027] dark:border-none dark:text-white'>
             <div className='flex flow-row justify-between gap-5'>
                 <section><SquareIcon style={{ color: '#5547D7', borderRadius: '10px' }} /></section>
                 <span>423</span>
@@ -62,7 +62,7 @@ const ContractAccordion = () => {
 
             <span>$ 6700</span>
 
-            <section><p className='px-4 py-2 text-lg bg-[#b3ffb3] rounded-xl text-[#67AD5B]'>Accepted</p></section>
+            <section><p className='px-4 py-2 text-lg bg-[#638f63] rounded-xl text-[#93e285]'>Accepted</p></section>
 
             {/* Toggle button and buttons div */}
             <section className='flex flex-col justify-between items-center'>

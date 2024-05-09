@@ -31,13 +31,13 @@ const Sidebar = () => {
       <div className="darkBlueBg sidebar max-md:hidden fixed w-[355px] max-lg:w-[230px] h-screen flex flex-col justify-between pr-0 pl-10 pt-10 pb-10 max-lg:pl-5 dark:darkModeSidebar">
         {/* logo */}
         <NavLink
-          to="/"
+          to="/dashboard"
           className="h-[11%] flex items-center cursor-pointer mb-10 pr-10"
         >
           <div className="flex flex-row gap-3 items-center">
             <img
               src={logo}
-              alt="/"
+              alt="/dashboard"
               className="w-[60px] h-[50px] max-lg:w-[50px] max-lg:h-[40px]"
             />
             <h1 className="minceText text-[23px] duration-300 max-lg:text-lg">

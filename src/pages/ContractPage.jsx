@@ -16,14 +16,6 @@ const ContractPage = ({ toggleDarkMode }) => {
       <div className='flex flex-col mx-10 my-5 gap-7'>
         <div className='flex flex-row justify-between'>
           <div className='flex flex-row gap-10'>
-            <section className='flex flex-row items-center justify-center px-[20px] py-[10px] gap-3 bg-white border border-gray-300 rounded-2xl dark:border-[#D9D9D9]'>
-              <IoSearch size={25} />
-              <input
-                type="text"
-                placeholder="Search..."
-                className="bg-transparent focus:outline-none outline-none"
-              />
-            </section>
             <Button action={'Filter'} icon={<TuneIcon  />} bg={'#5547D7'} hoverBg={'#7094db'} onClick={() => document.getElementById('my_modal_left3').showModal()} />
               <dialog id="my_modal_left3" className="w-[30%] h-[20%] rounded-2xl px-6 py-6 text-lg dark:bg-[#1B1D52] dark:text-white">
                 <div className="flex flex-col">
@@ -42,7 +34,7 @@ const ContractPage = ({ toggleDarkMode }) => {
           <div><Button onClick={()=>navigate("/activities/contracts/newContract")} action={'New Contract'} icon={false} bg={'#5547D7'} hoverBg={'#7094db'} /></div>
         </div>
 
-        <div className='flex flex-row justify-between text-md font-semibold'>
+        <div className='flex flex-row justify-between text-md font-semibold dark:text-white'>
           <p>Contract ID</p>
           <p>Contractee</p>
           <p>Doc</p>
@@ -51,10 +43,8 @@ const ContractPage = ({ toggleDarkMode }) => {
           <p>Status</p>
         </div>
 
-        <section className='h-full overflow-y-scroll scrollbar-hidden mb-[10rem]'>
-          <div className='flex flex-col gap-6'>
-            <ContractAccordion />
-            <ContractAccordion />
+        <section className='h-full mb-[10rem]'>
+          <div className='flex flex-col gap-6 overflow-y-scroll scrollbar-hidden h-[98%]'>
             <ContractAccordion />
             <ContractAccordion />
             <ContractAccordion />

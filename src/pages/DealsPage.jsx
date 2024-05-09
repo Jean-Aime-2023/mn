@@ -6,7 +6,7 @@ import Deal from '../components/DashboardComponents/Deal';
 
 const DealsPage = ({ toggleDarkMode }) => {
   return (
-    <div className="flex flex-col gap-3 bg-[#F9F9F9] dark:bg-[#0F1631] h-screen">
+    <div className="flex flex-col gap-3 bg-[#F9F9F9] dark:bg-[#0F1631] h-screen dark:text-white">
       <Header header="Deals" search="true" userProfile="false" toggleDarkMode={toggleDarkMode} />
       <div className='relative z-0 flex flex-col mx-10 my-5 gap-7'>
         <div className='realtive'>
@@ -22,16 +22,6 @@ const DealsPage = ({ toggleDarkMode }) => {
               </div>
             </div>
           </dialog>
-          {/* <div className='absolute left-20 top-10 rounded-xl shadow-lg p-4 z-50'>
-            <ul>
-              <li>Filter By:</li>
-              <ul>
-                <li>All Deals</li>
-                <li>Scheduled Transactions</li>
-                <li>Transaction History</li>
-              </ul>
-            </ul>
-          </div> */}
         </div>
         <div className='flex flex-row justify-between text-md font-semibold'>
           <p>Name/Company</p>
@@ -41,7 +31,7 @@ const DealsPage = ({ toggleDarkMode }) => {
           <p>Status</p>
           <p>Actions</p>
         </div>
-        <div className='flex flex-col gap-7'>
+        <div className='flex flex-col gap-7 overflow-y-scroll scrollbar-hidden h-[98%]'>
           <Deal
             image={'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600'}
             name={'Kirezi Livia'}

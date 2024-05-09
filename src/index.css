@@ -59,10 +59,6 @@ body{
   @apply transition-colors duration-100;
 }
 
-body{
-  overflow: hidden;
-}
-
 .mainBg{
   background: #F9F9F9;
 }

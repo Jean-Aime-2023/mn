@@ -1,9 +1,12 @@
 import React from 'react';
+// import Header from '../components/DashboardComponents/Header';
 import Header from '../components/DashboardComponents/Header';
 import { Line, LineChart, ResponsiveContainer, DefaultTooltipContent, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
+// import BarChart from '../components/DashboardComponents/BarChart';
 import BarChart from '../components/DashboardComponents/BarChart';
+// import GeographyChart from '../components/DashboardComponents/GeographyChart';
 import GeographyChart from '../components/DashboardComponents/GeographyChart';
-import Calendar from '../components/DashboardComponents/Calendar';
+import { CalendarDemo } from '../components/DashboardComponents/Calendar';
 
 const data = [
   { name: 'Jan', uv: 3000 },
@@ -123,20 +126,20 @@ const AnalyticsPage = ({ toggleDarkMode }) => {
         </div>
 
         <div className='flex flex-row w-[100%] py-5'>
-          <div className='flex flex-col gap-10 w-[70%] overflow-y-scroll h-[80%] scrollbar-hidden -mb-[12rem]'>
-            <div className='shadow-lg rounded-xl bg-white'>
+          <div className='flex flex-col gap-10 w-[75%] overflow-y-scroll h-[80%] scrollbar-hidden -mb-[15rem]'>
+            <div className='shadow-lg rounded-xl bg-white dark:bg-[#0A1027]'>
               <BarChart />
             </div>
             <div className='text-xl font-semibold text-gray-500'>Analytics and charts</div>
             <div className='flex flex-row gap-5 w-[100%] mb-10'>
               {/* map */}
 
-              <div className='shadow-lg rounded-xl h-[25rem] w-[50%] p-3 bg-white'>
+              <div className='shadow-lg rounded-xl h-[25rem] w-[50%] p-3 bg-white dark:bg-[#0A1027]'>
                 <GeographyChart />
               </div>
 
               {/* line chart */}
-              <div className='shadow-lg rounded-xl h-[25rem] w-[50%] p-3 bg-white'>
+              <div className='shadow-lg rounded-xl h-[25rem] w-[50%] p-3 bg-white dark:bg-[#0A1027]'>
                 <div className='chart flex-1' style={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.7))' }}>
                   <ResponsiveContainer width="100%" height={360}>
                     <DefaultTooltipContent
@@ -160,8 +163,8 @@ const AnalyticsPage = ({ toggleDarkMode }) => {
           </div>
 
           {/* calendar */}
-          <div className='w-[30%] bg-white ml-10 rounded-xl p-7 flex flex-col gap-5 h-full'>
-            <Calendar />
+          <div className='w-[25%] bg-white dark:bg-[#0A1027] ml-10 rounded-xl text-sm p-7 flex flex-col gap-5 h-full dark:text-[#CECACA]'>
+            <div className='w-full flex justify-center'><CalendarDemo /></div>
             <hr className='border border-gray-300' />
             <div className='flex flex-col gap-7'>
               <section className='flex flex-col gap-2'>
@@ -169,7 +172,7 @@ const AnalyticsPage = ({ toggleDarkMode }) => {
                 <p className='flex flex-row items-center'>
                   <span><input
                   type="checkbox"
-                  className="custom-checkbox"
+                  className="w-5"
                 /> Send prototypeof the web app to dev
                 </span></p>
               </section>
@@ -178,13 +181,13 @@ const AnalyticsPage = ({ toggleDarkMode }) => {
                 <p className='flex flex-row items-center'>
                   <span><input
                   type="checkbox"
-                  className="custom-checkbox"
+                  className="w-5"
                 /> Get the copy for the facebook image
                 </span></p>
                 <p className='flex flex-row items-center'>
                   <span><input
                   type="checkbox"
-                  className="custom-checkbox"
+                  className="w-5"
                 /> Send invision demo to squad
                 </span></p>
               </section>
@@ -193,7 +196,7 @@ const AnalyticsPage = ({ toggleDarkMode }) => {
                 <p className='flex flex-row items-center'>
                   <span><input
                   type="checkbox"
-                  className="custom-checkbox"
+                  className="w-5" 
                 /> Update style guide and add color 
                 </span></p>
               </section>

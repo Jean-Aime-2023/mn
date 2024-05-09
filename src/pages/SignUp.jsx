@@ -19,6 +19,7 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [password2, setPassword2] = useState("")
   const [isChecked, setIsChecked] = useState(false);
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault()
@@ -38,6 +39,7 @@ const Login = () => {
         });
       }
       console.log('user registered successfully');
+      navigate("/dashboard")
       toast.success("User registration successful!!", {
         position: "bottom-left"
       })
@@ -49,7 +51,6 @@ const Login = () => {
     }
   }
 
-  const navigate = useNavigate();
 
   return (
     <div className='w-screen flex justify-center items-center h-screen max-sm:text-sm my-20'>
