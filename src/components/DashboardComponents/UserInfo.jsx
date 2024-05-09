@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import avatar from '../../assets/images/chat/avatar.png'
 import moreIcon from '../../assets/images/chat/more.png'
 import videoIcon from '../../assets/images/chat/video.png'
 import editIcon from '../../assets/images/chat/edit.png'
 
 const UserInfo = () => {
-    const [addMode,setAddMode] = useState(false);
   return (
     <div className='flex items-center justify-between w-full'>
         <div className='flex items-center gap-3'>
