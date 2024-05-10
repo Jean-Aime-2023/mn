@@ -7,7 +7,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../lib/firebase';
 import { UserAuth } from '../context/AuthContext';
 import toast, { Toaster } from 'react-hot-toast';
-
+import "react-toastify/dist/ReactToastify.css"
 
 const Login = () => {
   const navigate = useNavigate();

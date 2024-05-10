@@ -3,6 +3,7 @@ import Homepage from './pages/Homepage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 import Profile from './pages/Profile';
 import GoogleAccount from './pages/GoogleAccount';
 import { AuthContextProvider } from './context/AuthContext';
