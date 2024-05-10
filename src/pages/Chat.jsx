@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../components/DashboardComponents/Header'
 import List from '../components/DashboardComponents/List'
 import Detail from '../components/DashboardComponents/Detail'
-import ChatSection from '../components/DashboardComponents/ChatChatSection'
+import ChatSection from '../components/DashboardComponents/ChatSection'
 
 const Chat = ({ toggleDarkMode }) => {
     return (

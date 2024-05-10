@@ -19,42 +19,42 @@ const ChatList = () => {
         </div>
       </div>
       <div className='overflow-y-scroll max-h-[600px] scrollbar-hidden'>
-        <div className="item flex items-center gap-3 p-4 cursor-pointer border-b-[1px] border-gray-400 hover:bg-gray-700 hove:rounded-xl">
+        <div className="item flex items-center gap-3 p-4 cursor-pointer border-b-[1px] border-gray-400 hover:bg-gray-400 ">
           <img src={avatar} alt="" className='w-[50px] h-[50px] rounded-full object-cover' />
           <div className="texts flex flex-col">
             <span className='font-medium'>Jane</span>
             <p className='text-sm font-normal'>Hello</p>
           </div>
         </div>
-        <div className="item flex items-center gap-3 p-4 cursor-pointer border-b-[1px] border-gray-400 hover:bg-gray-700 hove:rounded-xl">
+        <div className="item flex items-center gap-3 p-4 cursor-pointer border-b-[1px] border-gray-400 hover:bg-gray-400">
           <img src={avatar} alt="" className='w-[50px] h-[50px] rounded-full object-cover' />
           <div className="texts flex flex-col">
             <span className='font-medium'>Jane</span>
             <p className='text-sm font-normal'>Hello</p>
           </div>
         </div> 
-        <div className="item flex items-center gap-3 p-4 cursor-pointer border-b-[1px] border-gray-400 hover:bg-gray-700 hove:rounded-xl">
+        <div className="item flex items-center gap-3 p-4 cursor-pointer border-b-[1px] border-gray-400 hover:bg-gray-400">
           <img src={avatar} alt="" className='w-[50px] h-[50px] rounded-full object-cover' />
           <div className="texts flex flex-col">
             <span className='font-medium'>Jane</span>
             <p className='text-sm font-normal'>Hello</p>
           </div>
         </div>
-        <div className="item flex items-center gap-3 p-4 cursor-pointer border-b-[1px] border-gray-400 hover:bg-gray-700 hove:rounded-xl">
+        <div className="item flex items-center gap-3 p-4 cursor-pointer border-b-[1px] border-gray-400 hover:bg-gray-400">
           <img src={avatar} alt="" className='w-[50px] h-[50px] rounded-full object-cover' />
           <div className="texts flex flex-col">
             <span className='font-medium'>Jane</span>
             <p className='text-sm font-normal'>Hello</p>
           </div>
         </div> 
-        <div className="item flex items-center gap-3 p-4 cursor-pointer border-b-[1px] border-gray-400 hover:bg-gray-700 hove:rounded-xl">
+        <div className="item flex items-center gap-3 p-4 cursor-pointer border-b-[1px] border-gray-400 hover:bg-gray-400">
           <img src={avatar} alt="" className='w-[50px] h-[50px] rounded-full object-cover' />
           <div className="texts flex flex-col">
             <span className='font-medium'>Jane</span>
             <p className='text-sm font-normal'>Hello</p>
           </div>
         </div>
-        <div className="item flex items-center gap-3 p-4 cursor-pointer border-b-[1px] border-gray-400 hover:bg-gray-700 hove:rounded-xl">
+        <div className="item flex items-center gap-3 p-4 cursor-pointer border-b-[1px] border-gray-400 hover:bg-gray-400">
           <img src={avatar} alt="" className='w-[50px] h-[50px] rounded-full object-cover' />
           <div className="texts flex flex-col">
             <span className='font-medium'>Jane</span>
