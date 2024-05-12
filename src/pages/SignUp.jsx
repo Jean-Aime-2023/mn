@@ -10,6 +10,8 @@ import { auth, db } from '../lib/firebase';
 import { setDoc, doc } from 'firebase/firestore'
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
+import upload from '../lib/upload';
+import { ThreeCircles } from 'react-loader-spinner';
 
 const Login = () => {
 
@@ -20,35 +22,63 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [password2, setPassword2] = useState("")
   const [isChecked, setIsChecked] = useState(false);
+  const [loading,setLoading] = useState(false);
+  const [avatar, setAvatar] = useState({
+    file: null,
+    url: ""
+  })  
   const navigate = useNavigate();
+
+  const handleAvatar = e => {
+    if (e.target.files[0]) {
+      setAvatar({
+        file: e.target.files[0],
+        url: URL.createObjectURL(e.target.files[0])
+      })
+    }
+  }
 
   const handleRegister = async (e) => {
     e.preventDefault()
+    setLoading(true);
     try {
       await createUserWithEmailAndPassword(auth, email, password, password2);
       const user = auth.currentUser;
+      const imgUrl = avatar.file ? await upload(avatar.file) : "";
       console.log(user);
       if (user) {
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,
+          id:user.uid,
           firstname: firstname,
           lastname: lastname,
           password: password,
           password2: password2,
           phonenumber: phonenumber,
-          checked: isChecked
+          checked: isChecked,
+          blocked:[],
+          avatar:imgUrl,
         });
       }
+
+      await setDoc(doc(db,"userchats",user.uid),{
+        chats:[]
+      });
+
       console.log('user registered successfully');
-      navigate("/dashboard")
       toast.success("User registration successful!!", {
-        position: "bottom-left"
+        position: "bottom-left",
+        duration:3000
       })
+      navigate("/login")
+     
     } catch (error) {
       console.log(error.message);
       toast.success(error.message, {
         position: "bottom-left"
       })
+    }finally{
+      setLoading(false)
     }
   }
 
@@ -102,11 +132,28 @@ const Login = () => {
             <input type="password" placeholder='Your password' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' onChange={(e) => setPassword(e.target.value)} />
             <label htmlFor="password" className='text-[#6B6B6B]'>Confirm Password</label>
             <input type="password" placeholder='Confirm Password' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' onChange={(e) => setPassword2(e.target.value)} />
+            <label htmlFor="file">
+              <img src={avatar.url || ""} alt="" />
+              upload an image
+            </label>
+            <input type="file" id='file' style={{ display: "none" }} onChange={handleAvatar} />
             <div className='flex flow-row gap-3 items-center'>
               <input type="checkbox" id="agree" name="agree" className='w-[18px] h-[18px]' onChange={(e) => setIsChecked(e.target.value)} />
               <label htmlFor="agree" className='text-[#6B6B6B]'>Remember me</label>
             </div>
-            <button type="submit" className='w-full darkBlue rounded-md text-white py-4 cursor-pointer'>Sign Up</button>
+            <button type="submit" className='w-full darkBlue rounded-md flex justify-center items-center text-white py-4 cursor-pointer disabled:cursor-not-allowed disabled:bg-blue-400' disabled={loading}>
+              {loading ? (
+                <ThreeCircles
+                visible={true}
+                height="23"
+                width="23"
+                color="#fff"
+                ariaLabel="three-circles-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                />
+              ) : "Sign Up"}
+            </button>
           </form>
         </section>
         <section className='flex flex-row justify-between text-[#5547D7]'>

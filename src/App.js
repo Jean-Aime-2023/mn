@@ -3,7 +3,7 @@ import Homepage from './pages/Homepage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import { ToastContainer } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css"
+import 'react-toastify/dist/ReactToastify.css';
 import Profile from './pages/Profile';
 import GoogleAccount from './pages/GoogleAccount';
 import { AuthContextProvider } from './context/AuthContext';
@@ -30,18 +30,26 @@ export default function App() {
       <div>
         <AuthContextProvider>
           <Routes>
-            <Route index path="/" element={<Homepage />}></Route>
+            <Route
+              index
+              path="/"
+              element={
+                <Protected>
+                  <Homepage />
+                </Protected>
+              }
+            ></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
-            <Route
+            {/* <Route
               path="/account"
               element={
                 <Protected>
                   <GoogleAccount />
                 </Protected>
               }
-            ></Route>
+            ></Route> */}
           </Routes>
           <ToastContainer />
         </AuthContextProvider>

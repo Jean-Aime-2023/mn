@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import logo from '../assets/logos/mince2.png'
 import googleLogo from '../assets/logos/google.png'
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../lib/firebase';
-import { UserAuth } from '../context/AuthContext';
+import { AuthContext, UserAuth } from '../context/AuthContext';
 import toast, { Toaster } from 'react-hot-toast';
 import "react-toastify/dist/ReactToastify.css"
+import { ThreeCircles } from 'react-loader-spinner';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isChecked, setIsChecked] = useState("");
+  const [loading,setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -43,11 +45,11 @@ const Login = () => {
     }
   }
 
-  useEffect(() => {
-    if (user != null) {
-      navigate('/dashboard');
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user != null) {
+  //     navigate('/dashboard');
+  //   }
+  // }, [user]);
 
   return (
     <div className='w-screen flex justify-center items-center h-screen max-sm:text-sm'>
@@ -74,10 +76,22 @@ const Login = () => {
             <label htmlFor="password" className='text-[#6B6B6B]'>Password</label>
             <input type="password" placeholder='Your password' className='py-3 px-4 border-2 border-[#CECACA] rounded-md outline-none focus:outline-none' onChange={(e) => setPassword(e.target.value)} />
             <div className='flex flow-row gap-3 items-center'>
-              <input type="checkbox" id="agree" name="agree" className='w-[18px] h-[18px]' onChange={(e) => setIsChecked(e.target.value)} />
+              <input value={isChecked} type="checkbox" id="agree" name="agree" className='w-[18px] h-[18px]' onChange={(e) => setIsChecked(e.target.value)} />
               <label htmlFor="agree" className='text-[#6B6B6B]'>Remember me</label>
             </div>
-            <button type="submit" className='w-full darkBlue rounded-md text-white py-4 cursor-pointer'>Login</button>
+            <button type="submit" className='w-full darkBlue rounded-md flex justify-center items-center text-white py-4 cursor-pointer disabled:cursor-not-allowed disabled:bg-blue-400' disabled={loading}>
+              {loading ? (
+                <ThreeCircles
+                visible={true}
+                height="23"
+                width="23"
+                color="#fff"
+                ariaLabel="three-circles-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                />
+              ) : "Login"}
+            </button>
           </form>
         </section>
         <section className='flex flex-row justify-between text-[#5547D7]'>
