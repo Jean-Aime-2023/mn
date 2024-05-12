@@ -6,9 +6,10 @@ import ChatSection from '../components/DashboardComponents/ChatSection'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../lib/firebase'
 import { useUserStore } from '../lib/useStore'
+import { ThreeCircles } from 'react-loader-spinner'
 
 const Chat = ({ toggleDarkMode }) => {
-    const {currentUser,isLoading,fetchUserInfo} = useUserStore()
+    const { currentUser, isLoading, fetchUserInfo } = useUserStore()
     useEffect(() => {
         const unSub = onAuthStateChanged(auth, (user) => {
             fetchUserInfo(user.uid)
@@ -21,7 +22,17 @@ const Chat = ({ toggleDarkMode }) => {
 
     console.log(currentUser)
 
-    if(isLoading) return <div className='text-2xl bg-gray-700 text-white p-4 rounded-xl'>Loading</div>
+    if (isLoading) return <div className='w-full h-[61.92rem] flex items-center justify-center place-content-center'>
+        <ThreeCircles
+            visible={true}
+            height="40"
+            width="40"
+            color="#00008b"
+            ariaLabel="three-circles-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+        />
+    </div>
     return (
         <div className="flex flex-col gap-3 bg-[#F9F9F9] dark:bg-[#0F1631] h-screen text-sm">
             <Header header="Messages" search="true" userProfile="false" toggleDarkMode={toggleDarkMode} />
